@@ -1,19 +1,47 @@
-//import { TEST1, TEST2 } from './test';
 import './index.css';
-import Dog from './dog.jpg';
-
-import { hello2 } from './myFolder';
-import { hello } from './myFolder/hello';
-
-console.log(hello2, hello);
 
 function App() {
+  const name = 'Alex';
+  const age = 19;
+
+  let attr;
+
+  if (age === 18) {
+      attr = 'good';
+  }
+  else {
+      attr = 'bad';
+  }
+
+  function test() {
+      if (age === 18) {
+          return (
+              <div>feqjifoejqoifqe</div>
+          );
+      }
+      else {
+          return (
+              <div>lpcalpclplppcadp</div>
+          );
+      }
+  }
+
   return (
     <>
-      Hello
-      <div className='hello'>
-      <img src={Dog} />
-    </div>
+      {/* <div className={attr}>
+        {name} {age}
+      </div> */}
+      <div>
+          {/* if (age === 20)
+          
+          { console.log('hello') }
+
+          { console.log('1314134') } */}
+
+          {/* {age === 18 ? 'good' : 'bad'} */}
+
+          {test()}
+      </div>
     </>
   )
 }

@@ -1,47 +1,53 @@
 import './index.css';
 
 function App() {
-  const name = 'Alex';
-  const age = 19;
+  const array = [{ hello: 'world' }, { hello: 'world2' }];
+  
+  // const arrayReactElements = [];
 
-  let attr;
+  // const result = array.map((obj) => {
+  //     return (
+  //         <p>{obj.hello}</p>
+  //     );
+  // });
 
-  if (age === 18) {
-      attr = 'good';
-  }
-  else {
-      attr = 'bad';
-  }
+  // console.log(result);
 
-  function test() {
-      if (age === 18) {
-          return (
-              <div>feqjifoejqoifqe</div>
-          );
-      }
-      else {
-          return (
-              <div>lpcalpclplppcadp</div>
-          );
-      }
-  }
 
+  // array.forEach((obj) => {
+  //     arrayReactElements.push(
+  //         <p>{obj.hello}</p>
+  //     );
+  // });
+
+  // for (let i = 0; i < array.length; i++) {
+  //     const obj = array[i];
+
+  //     arrayReactElements.push(
+  //         <p>{obj.hello}</p>
+  //     );
+  // }
+
+  // console.log(array);
+  // console.log(arrayReactElements);
+  
+  
   return (
     <>
-      {/* <div className={attr}>
-        {name} {age}
-      </div> */}
-      <div>
-          {/* if (age === 20)
-          
-          { console.log('hello') }
+      {/* {arrayReactElements} */}
+      {/* {array.map((obj) => {
+        return (
+            <p>{obj.hello}</p>
+        );
+      })} */}
 
-          { console.log('1314134') } */}
+      {array.reduce((acc, obj) => {
+          acc.push(
+              <p>{obj.hello}</p>
+          );
 
-          {/* {age === 18 ? 'good' : 'bad'} */}
-
-          {test()}
-      </div>
+          return acc;
+      }, [])}
     </>
   )
 }

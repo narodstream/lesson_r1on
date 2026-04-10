@@ -1,29 +1,60 @@
+import UserName from './UserName';
+import Button from './Button';
+import Description from './Description';
 import './index.css';
 
-const USERS = [
-    { name: 'Alex', surname: 'test', age: 20, passportId: 123 },
-    { name: 'Alex', surname: 'test2', age: 20, passportId: 66 },
-    { name: 'John', surname: 'test2', age: 56, passportId: 123 },
-    { name: 'Bob', surname: 'test3', age: 10, passportId: 50 },
-];
+let USERS = [
+    { id: 1, name: 'Alex', surname: 'test', age: 20, passportId: 123 },
+    { id: 2, name: 'Alex', surname: 'test2', age: 20, passportId: 66 },
+    { id: 3, name: 'John', surname: 'test2', age: 56, passportId: 123 },
+    { id: 4, name: 'Bob', surname: 'test3', age: 10, passportId: 50 },
+];  
 
 function App() {
+
+    const changeName = (id, newName) => {
+        USERS = USERS.map((user) => {
+            if (user.id === id) {
+                return {
+                    id: user.id,
+                    name: newName,
+                    surname: user.surname,
+                    age: user.age,
+                    passportId: user.passportId,
+                };
+            }
+
+            return user;
+        });
+    };
+
     const data = [];
 
     USERS.forEach((user) => {
-    const key = generateKey(user);
+      const key = generateKey(user);
 
-    data.push(
-        <div key={key}>
-            <p>{user.name}</p>
-        </div>
-    );
+      data.push(
+        <UserName
+          userName={user.name}
+          userSurname={user.surname}
+          userAge={user.age}
+          changeName={changeName}
+        />
+      );
     })
+
+    let dataFromServer = '...'
+    
+    const getMoney = () => {
+        // send request
+        // dataFromServer = data
+    }
   
-  return (
-    <>
-        {data}
-    </>
+    return (
+      <>
+        <Description dataFromServer={dataFromServer} getMoney={getMoney} />
+        <Button dataFromServer={dataFromServer} />
+      </>
   )
 }
 

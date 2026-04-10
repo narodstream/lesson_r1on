@@ -1,55 +1,34 @@
 import './index.css';
 
+const USERS = [
+    { name: 'Alex', surname: 'test', age: 20, passportId: 123 },
+    { name: 'Alex', surname: 'test2', age: 20, passportId: 66 },
+    { name: 'John', surname: 'test2', age: 56, passportId: 123 },
+    { name: 'Bob', surname: 'test3', age: 10, passportId: 50 },
+];
+
 function App() {
-  const array = [{ hello: 'world' }, { hello: 'world2' }];
-  
-  // const arrayReactElements = [];
+    const data = [];
 
-  // const result = array.map((obj) => {
-  //     return (
-  //         <p>{obj.hello}</p>
-  //     );
-  // });
+    USERS.forEach((user) => {
+    const key = generateKey(user);
 
-  // console.log(result);
-
-
-  // array.forEach((obj) => {
-  //     arrayReactElements.push(
-  //         <p>{obj.hello}</p>
-  //     );
-  // });
-
-  // for (let i = 0; i < array.length; i++) {
-  //     const obj = array[i];
-
-  //     arrayReactElements.push(
-  //         <p>{obj.hello}</p>
-  //     );
-  // }
-
-  // console.log(array);
-  // console.log(arrayReactElements);
-  
+    data.push(
+        <div key={key}>
+            <p>{user.name}</p>
+        </div>
+    );
+    })
   
   return (
     <>
-      {/* {arrayReactElements} */}
-      {/* {array.map((obj) => {
-        return (
-            <p>{obj.hello}</p>
-        );
-      })} */}
-
-      {array.reduce((acc, obj) => {
-          acc.push(
-              <p>{obj.hello}</p>
-          );
-
-          return acc;
-      }, [])}
+        {data}
     </>
   )
+}
+
+function generateKey(user) {
+    return `${user.name}_${user.surname}_${user.age}_${user.passportId}`;
 }
 
 export default App
